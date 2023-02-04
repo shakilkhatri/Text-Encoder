@@ -31,6 +31,7 @@ function copyToClipboard() {
   var toast = document.getElementById("toast");
   var bsAlert = new bootstrap.Toast(toast);
   bsAlert.show();
+  toast.scrollIntoView();
 }
 
 function clearInput() {
