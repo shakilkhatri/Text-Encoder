@@ -17,27 +17,31 @@ function encode() {
     alert("Something went wrong!");
   }
   copyBtn.title = "Copy";
+  output.style.whiteSpace = "unset";
 }
 function decode() {
   output.innerText = hex_to_ascii(input.value);
+  output.style.whiteSpace = "pre";
 }
 
 function copyToClipboard() {
-  // output.select();
-  // output.setSelectionRange(0, 99999);
   navigator.clipboard.writeText(output.innerText);
   copyBtn.title = "Copied!!";
 
-  var toast = document.getElementById("toast"); //select id of toast
-  var bsAlert = new bootstrap.Toast(toast); //inizialize it
+  var toast = document.getElementById("toast");
+  var bsAlert = new bootstrap.Toast(toast);
   bsAlert.show();
+}
+
+function clearInput() {
+  input.value = "";
 }
 
 function ConvertStringToHex(str) {
   var arr = [];
   for (var i = 0; i < str.length; i++) {
     arr[i] = str.charCodeAt(i).toString(16).slice(-4);
-    if (arr[i] == "a") arr[i] = "0a";
+    if (arr[i].length == 1) arr[i] = "0" + arr[i];
   }
   return arr.join("");
 }
