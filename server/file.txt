@@ -1,0 +1,6 @@
+HTML Encoding
+URL Encoding
+Unicode Encoding
+Base64 Encoding
+Hex Encoding
+ASCII Encoding
