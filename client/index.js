@@ -38,6 +38,35 @@ function clearInput() {
   input.value = "";
 }
 
+function download(filename) {
+  var element = document.createElement("a");
+  element.setAttribute(
+    "href",
+    "data:text/plain;charset=utf-8," + encodeURIComponent(output.innerText)
+  );
+  element.setAttribute("download", filename);
+
+  element.style.display = "none";
+  document.body.appendChild(element);
+
+  element.click();
+
+  document.body.removeChild(element);
+}
+
+function loadFileAsText() {
+  var fileToLoad = document.getElementById("fileInput").files[0];
+
+  var fileReader = new FileReader();
+  fileReader.onload = function (fileLoadedEvent) {
+    var textFromFileLoaded = fileLoadedEvent.target.result;
+    console.log(textFromFileLoaded);
+    document.getElementById("input").value = textFromFileLoaded;
+  };
+
+  fileReader.readAsText(fileToLoad, "UTF-8");
+}
+
 function ConvertStringToHex(str) {
   var arr = [];
   for (var i = 0; i < str.length; i++) {

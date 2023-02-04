@@ -38,8 +38,9 @@
       class="container p-2 d-flex flex-column justify-content-center"
       style="max-width: 500px"
     >
-      <h3 class="text-center">TEXT ENCODER</h3>
+      <h3 class="text-center">TEXT ENCODER / DECODER</h3>
       <div>
+        <input type="file" onchange="loadFileAsText()" id="fileInput" />
         <button class="btn btn-danger btn-sm float-end" onclick="clearInput()">
           Clear
         </button>
@@ -110,6 +111,9 @@
           ></button> -->
         </div>
       </div>
+      <button class="btn btn-primary my-3" onclick="download('output.txt')">
+        Download output as text file
+      </button>
     </div>
   </body>
 </html>
